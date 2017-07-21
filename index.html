@@ -70,6 +70,18 @@
     ga('create', 'UA-78932601-1', 'auto');
     ga('send', 'pageview');
 
+    document.onreadystatechange = function () {
+      var state = document.readyState
+      if (state == 'interactive') {
+           document.getElementById('contents').style.visibility="hidden";
+      } else if (state == 'complete') {
+          setTimeout(function(){
+             document.getElementById('interactive');
+             document.getElementById('load').style.visibility="hidden";
+             document.getElementById('contents').style.visibility="visible";
+          },1000);
+      }
+    }
 </script>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="160" onload="LoadCard()">
 
@@ -121,8 +133,7 @@
     </div>
 </div>
 
-<div id="whyus" class="container-fluid"
->
+<div id="whyus" class="container-fluid">
     <div class="row">
         <div class="title-bar text-center">
             <h1>Why us?</h1>
@@ -1165,7 +1176,6 @@
         });
     });
 </script>
-
 </div>
 </body>
 </html>
