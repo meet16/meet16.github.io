@@ -59,10 +59,20 @@
                 d_count++;
             }
         }
+
+        function loadHTMLAnyWay(){
+            document.getElementById('load').style.visibility="hidden";
+            document.getElementById('contents').style.visibility="visible";
+        }
     </script>
 </head>
 <script>
+    var loadHTMLFlag = false;
     document.onreadystatechange = function () {
+      setTimeout(function(){
+          if (!loadHTMLFlag)
+            document.getElementById('loadHTML').style.visibility="visible";
+          },4000);
       var state = document.readyState
       if (state == 'interactive') {
            document.getElementById('contents').style.visibility="hidden";
@@ -70,7 +80,9 @@
           setTimeout(function(){
              document.getElementById('interactive');
              document.getElementById('load').style.visibility="hidden";
+             document.getElementById('loadHTML').style.visibility="hidden";
              document.getElementById('contents').style.visibility="visible";
+             loadHTMLFlag = true;
           },4000);
       }
     }
@@ -87,12 +99,14 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" onload="LoadCard()">
 
 <div id="load">
+    <h2 class="text-center" id="loadHTML" style="visibility: hidden" onclick='loadHTMLAnyWay()'>Click Here to Load it anyway</h1>
     <h1 class="text-center" style="padding-top: 30%;padding-bottom: 30%">Please Wait while we Load Page</h1>
+    
 </div>
 <div id="contents" style="visibility: hidden">
 
 <div id="cover-image" class="backgroundcover container-fluid">
-    <h1 class="jumbotron text-center">Mul Light</h1>
+    <h1 class="jumbotron text-center text">Mul Light</h1>
 </div>
 
 <nav id="navigation" data-spy="affix" class="navbar navbar-default">

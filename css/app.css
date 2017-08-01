@@ -6,9 +6,13 @@
     height:100%;
     position:fixed;
     z-index:9999;
-    background:url("../images/cube.gif") no-repeat center center;
-    background-color: white;
-    color: #0a0a0a;
+    background:url("../images/cube.jpg") no-repeat center center;
+    /*background-color: white;*/
+     background-color: #F0F0F0; 
+    /* background-color: white; */
+    /*color: #0a0a0a;*/
+     /* color: #3adb76;  */
+     color: black; 
 }
 .backgroundcover {
     /* The image used */
@@ -26,7 +30,7 @@
 }
 .jumbotron {
     padding-top: 17%;
-    font-size: 800%;
+    font-size: 500% !important;
     /*color: white;*/
     background-color: #3adb76;
     color: #0a0a0a;
